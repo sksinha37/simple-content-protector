@@ -1,0 +1,90 @@
+/* Admin bar item (the entire toggle switch container) */
+#wp-admin-bar-prc_plugin_toggle .ab-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The switch container */
+.switch {
+    position: relative !important;
+    display: inline-block !important;
+    width: 50px !important; /* Switch width */
+    height: 24px !important; /* Switch height */
+    margin-left: 10px !important;
+    background-color: #ccc; /* Default grey color */
+    border-radius: 50px !important;
+    transition: background-color 0.4s ease !important; /* Smooth transition for background color */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hide the default checkbox */
+.switch input {
+    opacity: 0;
+    width: 0 ;
+    height: 0;
+}
+
+/* The slider that represents the actual toggle button */
+.slider {
+    cursor: pointer;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s !important;
+    border-radius: 50px !important;
+}
+
+/* The small circle that moves when toggled */
+.slider:before {
+    content: "";
+    position: absolute !important;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* When the checkbox is checked, the background of the slider changes to green */
+input:checked + .slider {
+    background-color: #4CAF50; /* Green when checked */
+}
+
+/* The small circle moves when the checkbox is checked */
+input:checked + .slider:before {
+    transform: translateX(22px); /* Moves the circle to the right */
+}
+
+/* When the switch is disabled (unchecked), background is red */
+input:not(:checked) + .slider {
+    background-color: #FF4136; /* Red when unchecked */
+}
+
+/* Text for the "Prevent RightClick" label */
+#prc-switch-text {
+    color: #ffffff;
+    font-weight: bold;
+    display: inline-block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Popup for showing messages */
+.prc-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+#wp-admin-bar-prc_plugin_toggle label{
+vertical-align: baseline;
+}
